@@ -161,8 +161,11 @@ img {
 .hero-content {
   position: relative;
   z-index: 1;
-  width: min(780px, calc(100% - 36px));
-  margin-left: clamp(18px, 7vw, 92px);
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  min-height: 570px;
+  margin-inline: clamp(18px, 7vw, 92px);
   padding-top: 78px;
 }
 
@@ -224,10 +227,46 @@ h3 {
   font-weight: 800;
 }
 
+.hero-phone {
+  position: absolute;
+  right: -28px;
+  bottom: 28px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 460px;
+  min-height: 124px;
+  padding: 18px 28px;
+  color: #a31212;
+  background: #ffe066;
+  border: 3px solid #ffcf33;
+  border-radius: 12px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+  font-weight: 900;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.hero-phone span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 22px;
+}
+
+.hero-phone a {
+  margin-left: 0;
+  color: #c1121f;
+  font-size: 40px;
+  text-decoration: none;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  margin-top: 0;
 }
 
 .notice-band {
@@ -244,7 +283,7 @@ h3 {
 .section {
   width: min(1120px, calc(100% - 36px));
   margin: 0 auto;
-  padding: clamp(58px, 8vw, 98px) 0;
+  padding: clamp(42px, 6vw, 70px) 0;
 }
 
 .proof-strip {
@@ -377,6 +416,118 @@ h3 {
 
 .target-list.compact {
   align-content: start;
+}
+
+.compact-summary {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(24px, 5vw, 58px);
+  align-items: center;
+}
+
+.summary-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summary-list li {
+  display: grid;
+  gap: 3px;
+  padding: 18px 20px;
+  background: var(--white);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(20, 33, 42, 0.07);
+}
+
+.summary-list strong {
+  font-size: 18px;
+}
+
+.summary-list span {
+  color: var(--muted);
+}
+
+.compact-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  padding-top: 0;
+}
+
+.detail-copy,
+.detail-box,
+.equipment-mini {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(20, 33, 42, 0.06);
+}
+
+.detail-copy {
+  padding: 24px;
+}
+
+.detail-box {
+  padding: 24px;
+  border-left: 5px solid var(--green);
+}
+
+.equipment-mini {
+  grid-column: 1 / -1;
+  padding: 22px 24px;
+}
+
+.mini-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.mini-tags span {
+  padding: 7px 11px;
+  background: #eef6fa;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--blue-dark);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.equipment-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.equipment-mini-grid article {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  background: var(--paper);
+  border-radius: 8px;
+}
+
+.equipment-mini-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.equipment-mini-grid strong {
+  color: var(--blue);
+}
+
+.equipment-mini-grid span {
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .equipment-section {
@@ -515,6 +666,12 @@ h3 {
   gap: 12px;
   align-items: center;
   margin-top: 26px;
+}
+
+.office-note {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
 }
 
 .tel {
@@ -661,6 +818,13 @@ body.show-sticky .sticky-cta {
     grid-template-columns: 220px 1fr;
   }
 
+  .hero-phone {
+    position: static;
+    width: min(100%, 520px);
+    min-height: auto;
+    margin: 0 0 18px;
+  }
+
   .service-card {
     min-height: auto;
   }
@@ -703,9 +867,12 @@ body.show-sticky .sticky-cta {
   .hero-content {
     margin: 0 auto;
     padding-top: 142px;
+    min-height: auto;
   }
 
   .intro,
+  .compact-summary,
+  .compact-detail,
   .split,
   .season,
   .problem-solution,
@@ -725,6 +892,10 @@ body.show-sticky .sticky-cta {
     grid-template-columns: 1fr;
   }
 
+  .equipment-mini-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero-actions,
   .button,
   .line-button {
@@ -733,6 +904,20 @@ body.show-sticky .sticky-cta {
 
   h1 {
     font-size: 36px;
+  }
+
+  .hero-phone {
+    position: static;
+    transform: none;
+    display: flex;
+    min-width: 0;
+    margin: 0 0 18px;
+    padding: 10px 14px;
+    font-size: 20px;
+  }
+
+  .hero-actions {
+    margin-top: 0;
   }
 
   .section {
