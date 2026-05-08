@@ -141,7 +141,7 @@ img {
   position: relative;
   display: grid;
   align-items: center;
-  min-height: min(790px, 94vh);
+  min-height: min(680px, 82vh);
   overflow: hidden;
   color: var(--white);
 }
@@ -589,6 +589,9 @@ h3 {
 }
 
 .price-card {
+  display: grid;
+  grid-template-rows: 32px 62px minmax(78px, auto) 1fr;
+  align-content: start;
   padding: 24px;
 }
 
@@ -599,6 +602,8 @@ h3 {
 
 .price-card > span {
   display: inline-flex;
+  align-self: start;
+  justify-self: start;
   margin-bottom: 14px;
   padding: 4px 10px;
   color: var(--white);
@@ -606,6 +611,15 @@ h3 {
   border-radius: 999px;
   font-size: 12px;
   font-weight: 900;
+}
+
+.price-card:not(.featured)::before {
+  content: "";
+  display: block;
+}
+
+.price-card h3 {
+  min-height: 62px;
 }
 
 .price {
@@ -838,7 +852,7 @@ h3 {
   }
 
   .hero {
-    min-height: 780px;
+    min-height: 720px;
   }
 
   .hero-overlay {
