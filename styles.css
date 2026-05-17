@@ -305,23 +305,22 @@ h3 {
   box-shadow: 0 14px 34px rgba(20, 33, 42, 0.07);
 }
 
+.proof-block {
+  text-align: center;
+}
+
+.proof-block h2 {
+  margin: 0 0 24px;
+  color: var(--night);
+  font-size: clamp(30px, 4.2vw, 46px);
+  font-weight: 900;
+}
+
 .proof-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  padding-bottom: 0;
-}
-
-.proof-heading {
-  padding-bottom: 0;
-  text-align: center;
-}
-
-.proof-heading h2 {
-  margin: 0;
-  color: var(--night);
-  font-size: clamp(30px, 4.2vw, 46px);
-  font-weight: 900;
+  text-align: left;
 }
 
 .proof-strip div,
