@@ -323,6 +323,14 @@ h3 {
   text-align: left;
 }
 
+.proof-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .proof-strip div,
 .service-card,
 .price-card {
