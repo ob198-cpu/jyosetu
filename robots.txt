@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ob198-cpu.github.io/jyosetu/sitemap.xml
+Sitemap: https://www.northclub-josetsu.jp/sitemap.xml
