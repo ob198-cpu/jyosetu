@@ -9,11 +9,6 @@
   const helper = document.querySelector('#inquiryHelper');
   const button = form.querySelector('.draft-submit');
   const status = document.querySelector('#draftStatus');
-  const result = document.querySelector('#draftResult');
-  const preview = document.querySelector('#draftPreview');
-  const select = document.querySelector('#draftSelect');
-  const directLink = form.querySelector('.manual-form-link');
-  const webDirectLink = document.querySelector('.web-choice .solid-link');
   const formURL = 'https://forms.gle/CuH34CGrpjS4D3n2A';
   const prefillURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfCPjLxCtIg3E4MHXnooZ6zOvLXc7xOtw44gg_Fb4p53EposQ/viewform';
   let busy = false;
@@ -24,15 +19,8 @@
       selectedService = link.dataset.consultService;
       serviceContext.textContent = `ご相談の作業：${selectedService}`;
       serviceContext.hidden = false;
-      // Keep all user-entered fields intact; add the chosen service to the draft separately.
-      if (!result.hidden && !busy) preview.value = buildDraft();
-      updateDirectLink();
     });
   });
-  function buildDraft() {
-    const value = name => form.elements.namedItem(name).value.trim() || '未入力';
-    return ['【NORTH CLUB 除雪・排雪お問い合わせ】', ...(selectedService ? [`相談したい作業：${selectedService}`] : []), `会社名：${value('company')}`, `住所・エリア：${value('area')}`, `駐車台数：${value('cars')}`, `希望内容：${value('message')}`].join('\n');
-  }
   function buildFormURL() {
     // The Google form's address and inquiry fields are short-answer inputs.
     const value = name => form.elements.namedItem(name).value.trim().replace(/\r\n?|\n/g, ' / ');
@@ -50,34 +38,19 @@
     if (parts.length) url.searchParams.set('entry.566332613', parts.join(' / '));
     return url.href;
   }
-  function updateDirectLink() {
-    const destination = buildFormURL();
-    directLink.href = destination;
-    if (webDirectLink) webDirectLink.href = destination;
-  }
-  form.addEventListener('input', updateDirectLink);
-  form.addEventListener('change', updateDirectLink);
-  directLink.addEventListener('click', updateDirectLink);
-  if (webDirectLink) webDirectLink.addEventListener('click', updateDirectLink);
   form.addEventListener('submit', event => {
     event.preventDefault();
     if (busy) return;
     busy = true;
     button.disabled = true;
     button.setAttribute('aria-busy', 'true');
-    const draft = buildDraft();
-    preview.value = draft;
-    result.hidden = false;
-    result.open = false;
     const destination = buildFormURL();
-    directLink.href = destination;
-    if (webDirectLink) webDirectLink.href = destination;
     status.textContent = '';
     try {
       window.open(destination, '_blank', 'noopener,noreferrer');
       // noopener may return null even when a tab opens; do not infer popup success from the return value.
     } catch {
-      status.textContent = 'フォームを開けませんでした。下の「Googleフォームを直接開く」をご利用ください。';
+      status.textContent = 'フォームを開けませんでした。もう一度お試しください。';
     } finally {
       setTimeout(() => {
         busy = false;
@@ -86,9 +59,7 @@
       }, 350);
     }
   });
-  select.addEventListener('click', () => { preview.focus(); preview.select(); });
-  // Reveal only after the submit guard is in place; no-JS visitors retain the independent external link.
+  // Reveal only after the submit guard is in place.
   button.type = 'submit';
-  updateDirectLink();
   helper.hidden = false;
 })();
