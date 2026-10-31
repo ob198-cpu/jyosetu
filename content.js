@@ -13,6 +13,7 @@
   const preview = document.querySelector('#draftPreview');
   const select = document.querySelector('#draftSelect');
   const directLink = form.querySelector('.manual-form-link');
+  const webDirectLink = document.querySelector('.web-choice .solid-link');
   const formURL = 'https://forms.gle/CuH34CGrpjS4D3n2A';
   const prefillURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfCPjLxCtIg3E4MHXnooZ6zOvLXc7xOtw44gg_Fb4p53EposQ/viewform';
   let busy = false;
@@ -49,10 +50,15 @@
     if (parts.length) url.searchParams.set('entry.566332613', parts.join(' / '));
     return url.href;
   }
-  function updateDirectLink() { directLink.href = buildFormURL(); }
+  function updateDirectLink() {
+    const destination = buildFormURL();
+    directLink.href = destination;
+    if (webDirectLink) webDirectLink.href = destination;
+  }
   form.addEventListener('input', updateDirectLink);
   form.addEventListener('change', updateDirectLink);
   directLink.addEventListener('click', updateDirectLink);
+  if (webDirectLink) webDirectLink.addEventListener('click', updateDirectLink);
   form.addEventListener('submit', event => {
     event.preventDefault();
     if (busy) return;
@@ -65,6 +71,7 @@
     result.open = false;
     const destination = buildFormURL();
     directLink.href = destination;
+    if (webDirectLink) webDirectLink.href = destination;
     status.textContent = '';
     try {
       window.open(destination, '_blank', 'noopener,noreferrer');
@@ -82,6 +89,6 @@
   select.addEventListener('click', () => { preview.focus(); preview.select(); });
   // Reveal only after the submit guard is in place; no-JS visitors retain the independent external link.
   button.type = 'submit';
+  updateDirectLink();
   helper.hidden = false;
-  if (location.hash === '#inquiryHelper') helper.open = true;
 })();
