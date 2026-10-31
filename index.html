@@ -7,10 +7,10 @@
   <meta name="color-scheme" content="light">
   <title>冬を、ひらく。 | 札幌・恵庭の除雪・排雪 — NORTH CLUB</title>
   <meta name="description" content="札幌・恵庭を拠点に、店舗・企業駐車場の除雪・排雪をご相談いただけます。シーズン契約・スポット作業・料金目安・お問い合わせのご案内。">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261031-hero">
   <link rel="stylesheet" href="content.css">
   <script src="motion.js" defer></script>
-  <script src="content.js" defer></script>
+  <script src="content.js?v=20261031-form" defer></script>
 
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.northclub-josetsu.jp/">
@@ -27,21 +27,20 @@
   <header class="header">
     <a class="brand" href="#top" aria-label="NORTH CLUB株式会社 トップへ"><img src="assets/north-club-symbol.png" alt="NORTH CLUB" width="1120" height="430"></a>
     <p class="header-caption">札幌・恵庭の<br><strong>除雪・排雪</strong></p>
-    <div class="header-actions"><a class="header-link" href="#services">対応内容を見る <span aria-hidden="true">↘</span></a></div>
   </header>
   <main id="top">
     <section class="opening" aria-labelledby="opening-title">
       <div class="opening-stage">
         <div class="photo-plane" aria-hidden="true"><img class="hero-image" src="assets/snow-cleared-road-ai-20261021.png" alt="" width="1672" height="941" fetchpriority="high"><div class="photo-shade"></div></div>
-        <div class="opening-index" aria-hidden="true"><span>01 / NORTH CLUB</span><span>SNOW OPERATIONS</span></div>
+        <div class="opening-index" aria-hidden="true"><span>01 / NORTH CLUB</span></div>
         <h1 id="opening-title"><span class="title-before">冬を、</span><span class="title-open">ひらく<span class="title-dot">。</span></span></h1>
-        <div class="opening-bottom" aria-hidden="true"><span>OPEN THE WAY.</span><span class="scroll-label">SCROLL TO OPEN <i>↓</i></span></div>
+        <div class="opening-bottom"><a class="header-link" href="#services">対応内容を見る <span aria-hidden="true">↘</span></a></div>
         <div class="opening-reveal" aria-hidden="true"><span>その先に、</span><span>使える場所を。</span></div>
         <div class="progress-track" aria-hidden="true"><i></i></div>
       </div>
     </section>
     <section id="services" class="services" aria-labelledby="services-title">
-      <div class="service-intro"><div><p class="eyebrow">02 / OUR WORK</p><h2 id="services-title">除雪・排雪サービス</h2></div><p>雪を寄せる場所があるか、<br>敷地外へ運ぶ必要があるか。<br>敷地の状況に合わせてご相談ください。</p></div>
+      <div class="service-intro"><div><p class="eyebrow">02 / OUR WORK</p><h2 id="services-title">除雪・排雪サービス</h2></div></div>
       <div class="service-comparison">
         <article class="service-option" aria-labelledby="plow-title">
           <div class="service-heading"><h3 id="plow-title">除雪</h3><p>敷地内の雪を移動</p></div>
@@ -92,8 +91,8 @@
     <section class="chapter inquiry-chapter" id="contact" aria-labelledby="contact-title">
       <div class="chapter-label"><span>08 / OPEN A CONVERSATION</span><span>無料見積り・お問い合わせ</span></div>
       <h2 id="contact-title">除雪・排雪のご相談</h2><p class="contact-lead">対応できるか、費用はどのくらいか。<br>分からない項目は、そのままご相談ください。</p><p id="consultContext" class="consult-context" hidden role="status"></p>
-      <div class="contact-options"><div class="phone-choice"><h3>電話で相談する</h3><a href="tel:090-6029-1870" class="phone-number">090-6029-1870</a><p class="reception">受付 8:00–20:00</p><p>施設の住所、駐車台数、希望時間、<br>排雪の有無をお伝えください。</p></div><div class="web-choice"><h3>WEBで相談する</h3><p>Googleフォームで<br>直接、ご相談いただけます。</p><a class="solid-link" href="https://forms.gle/CuH34CGrpjS4D3n2A" target="_blank" rel="noopener noreferrer">見積り・対応可否を相談する <span aria-hidden="true">↗</span></a><p class="fine-print">別タブでGoogleフォームが開きます。<br>送信は移動先で行います。</p></div></div>
-      <details class="inquiry-helper" id="inquiryHelper" hidden><summary><span>相談内容を先に整理する</span><span class="helper-optional">任意</span></summary><div class="helper-body"><div class="helper-intro"><h3>必要なことを、<br>ひとつの相談文に。</h3><p>入力内容をコピーして、<br>外部のGoogleフォームを開きます。<br>フォームへ貼り付け、連絡先を入力して送信してください。</p><p class="fine-print">このページから送信はされません。入力内容はこの画面を離れると失われます。</p></div><form id="estimateForm" class="draft-form"><label for="companyInput">会社名<input id="companyInput" name="company" type="text" autocomplete="organization" placeholder="例：株式会社〇〇"></label><label for="areaInput">住所・エリア<input id="areaInput" name="area" type="text" autocomplete="street-address" placeholder="例：札幌市北区の店舗駐車場"></label><label for="carsInput">駐車台数<input id="carsInput" name="cars" type="text" placeholder="例：30台程度"></label><label for="messageInput">希望内容<textarea id="messageInput" name="message" rows="4" placeholder="希望時間、排雪の有無、今お困りのことなど"></textarea></label><button class="draft-submit" type="button">内容をコピーして相談する <span aria-hidden="true">↗</span></button><p id="draftStatus" class="draft-status" role="status" aria-live="polite"></p><details class="draft-result" id="draftResult" hidden><summary>コピー用の相談文を確認する</summary><label for="draftPreview">相談文（手動でコピーできます）</label><textarea id="draftPreview" readonly rows="8" spellcheck="false"></textarea><button type="button" id="draftSelect">相談文を選択する</button></details><a class="line-link manual-form-link" href="https://forms.gle/CuH34CGrpjS4D3n2A" target="_blank" rel="noopener noreferrer">Googleフォームを直接開く（別タブ） <span aria-hidden="true">↗</span></a></form></div></details>
+      <div class="contact-options"><div class="phone-choice"><h3>電話で相談する</h3><a href="tel:000-0000-0000" class="phone-number">000-0000-0000</a><p class="reception">受付 8:00–20:00</p><p>施設の住所、駐車台数、希望時間、<br>排雪の有無をお伝えください。</p></div><div class="web-choice"><h3>WEBで相談する</h3><p>Googleフォームで<br>直接、ご相談いただけます。</p><a class="solid-link" href="https://forms.gle/CuH34CGrpjS4D3n2A" target="_blank" rel="noopener noreferrer">見積り・対応可否を相談する <span aria-hidden="true">↗</span></a><p class="fine-print">別タブでGoogleフォームが開きます。<br>送信は移動先で行います。</p></div></div>
+      <details class="inquiry-helper" id="inquiryHelper" hidden><summary><span>相談内容を先に整理する</span><span class="helper-optional">任意</span></summary><div class="helper-body"><div class="helper-intro"><h3>必要なことを、<br>ひとつの相談文に。</h3><p class="fine-print">このページから送信はされません。入力内容はこの画面を離れると失われます。</p></div><form id="estimateForm" class="draft-form"><label for="companyInput">会社名<input id="companyInput" name="company" type="text" autocomplete="organization" placeholder="例：株式会社〇〇"></label><label for="areaInput">住所・エリア<input id="areaInput" name="area" type="text" autocomplete="street-address" placeholder="例：札幌市北区の店舗駐車場"></label><label for="carsInput">駐車台数<input id="carsInput" name="cars" type="text" placeholder="例：30台程度"></label><label for="messageInput">希望内容<textarea id="messageInput" name="message" rows="4" placeholder="希望時間、排雪の有無、今お困りのことなど"></textarea></label><button class="draft-submit" type="button">相談を申し込む <span aria-hidden="true">↗</span></button><p id="draftStatus" class="draft-status" role="status" aria-live="polite"></p><details class="draft-result" id="draftResult" hidden><summary>コピー用の相談文を確認する</summary><label for="draftPreview">相談文（手動でコピーできます）</label><textarea id="draftPreview" readonly rows="8" spellcheck="false"></textarea><button type="button" id="draftSelect">相談文を選択する</button></details><a class="line-link manual-form-link" href="https://forms.gle/CuH34CGrpjS4D3n2A" target="_blank" rel="noopener noreferrer">Googleフォームを直接開く（別タブ）</a></form></div></details>
     </section>
   </main>
   <footer class="content-footer"><div><a href="#top" class="footer-name">NORTH CLUB<span aria-hidden="true">↗</span></a><p>札幌・恵庭の店舗・企業駐車場の除雪・排雪</p></div><nav aria-label="フッターナビゲーション"><a href="#services">除雪・排雪</a><a href="#contracts">契約のかたち</a><a href="#price">料金目安</a><a href="#company">会社情報</a><a href="#contact">お問い合わせ</a></nav><small>© 2026 NORTH CLUB株式会社</small></footer>
