@@ -47,3 +47,5 @@
 #flow>.chapter-label>span:last-child,#contact>.chapter-label>span:last-child{font-size:18px;line-height:1.5;white-space:nowrap}
 @media(max-width:700px){#flow>.chapter-label>span:last-child,#contact>.chapter-label>span:last-child{font-size:16px}}
 @media(max-width:500px){#flow>.chapter-label,#contact>.chapter-label{flex-wrap:wrap}#flow>.chapter-label>span:first-child,#contact>.chapter-label>span:first-child{white-space:nowrap}#flow>.chapter-label>span:last-child,#contact>.chapter-label>span:last-child{margin-left:auto}}
+
+.content-footer nav .footer-contact{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px}.content-footer nav .footer-contact>a,.content-footer nav .footer-contact>span{white-space:nowrap}
