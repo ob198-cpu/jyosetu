@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+.clear-cover-page .header {
+  position: relative;
+  height: auto;
+  min-height: 112px;
+  padding: 14px 5%;
+  background: #fff;
+}
+.clear-cover-page .brand { width: 240px; mix-blend-mode: normal; }
+.clear-cover-page .deadline-card {
+  position: static;
+  padding: 8px 0 8px 22px;
+  border-left: 4px solid #c93d23;
+  background: transparent;
+  color: #182e32;
+  box-shadow: none;
+}
+.clear-cover-page .deadline-title { font-size: 16px; }
+.clear-cover-page .deadline-date { color: #ae2b19; font-size: 23px; }
+.clear-cover-page .deadline-message { font-size: 15px; }
+.clear-cover-page .opening.opening--clear { height: auto; min-height: 0; }
+.clear-cover-page .cover-stage {
+  position: relative;
+  height: auto;
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, .75fr);
+  align-items: end;
+  gap: 32px;
+  padding: 46px 5% 44px;
+  color: #fff;
+  background: #16383f;
+}
+.cover-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 63%;
+  z-index: -2;
+}
+.cover-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #071c27ed 0%, #071c27ca 32%, #071c2750 63%, #071c2712 100%);
+  z-index: -1;
+}
+.cover-content { min-width: 0; }
+.cover-region { font-size: 27px; font-weight: 700; margin: 0 0 12px; }
+.clear-cover-page .cover-title {
+  position: static;
+  margin: 0;
+  font-size: 76px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto;
+}
+.clear-cover-page .cover-title > span { display: block; width: auto; white-space: nowrap; }
+.clear-cover-page .cover-title > span:last-child { color: #ffdf62; }
+.cover-company { margin: 24px 0 0; font-size: 25px; font-weight: 700; }
+.cover-lead { font-size: 18px; line-height: 1.9; margin: 14px 0 28px; }
+.cover-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+.cover-estimate { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; background: #c93d23; padding: 18px 22px; font-size: 18px; font-weight: 700; min-height: 60px; }
+.cover-estimate:hover { background: #a82c16; }
+.cover-services { font-size: 17px; font-weight: 700; padding: 16px 0; border-bottom: 1px solid #fff8; }
+.cover-services span { margin-left: 12px; }
+.cover-phone { justify-self: end; display: grid; gap: 8px; width: 100%; max-width: 448px; padding: 23px 20px; background: #ffdf62; color: #a52014; text-align: center; border: 2px solid #ffc836; border-radius: 4px; }
+.cover-phone > span:first-child { font-size: 22px; font-weight: 700; }
+.cover-phone strong { font: 700 42px/1.15 Arial, sans-serif; white-space: nowrap; letter-spacing: 0; }
+.cover-phone .cover-hours { font-size: 16px; color: #343b30; }
+.cover-phone:hover { background: #ffe987; }
+.clear-cover-page .content-footer { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.clear-cover-page .footer-brand { min-width: 0; }
+.clear-cover-page .footer-brand nav { margin-top: 28px; }
+.clear-cover-page .footer-brand .footer-contact { display: grid; justify-items: start; gap: 10px; font-size: 16px; }
+.clear-cover-page .footer-company { margin-top: 0; min-width: 0; }
+.clear-cover-page .content-footer small { grid-column: 1 / -1; }
+.clear-cover-page .footer-company h2 { font-size: 22px; color: #fff; letter-spacing: 0; margin-bottom: 14px; }
+.clear-cover-page .footer-company dl { display: grid; grid-template-columns: 1fr; gap: 0; }
+.clear-cover-page .footer-company dl > div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 20px; border-top: 1px solid #ffffff25; padding: 12px 0; }
+.clear-cover-page .footer-company dt { font-size: 16px; white-space: nowrap; }
+.clear-cover-page .footer-company dd { margin: 0; font-size: 16px; }
+
+@media (min-width: 1600px) {
+  .clear-cover-page .cover-stage { min-height: 660px; padding-left: 7%; padding-right: 7%; }
+  .clear-cover-page .cover-title { font-size: 88px; }
+}
+@media (max-width: 1050px) {
+  .clear-cover-page .cover-stage { grid-template-columns: 1fr; min-height: 620px; }
+  .cover-content { max-width: 620px; }
+  .clear-cover-page .cover-title { font-size: 64px; }
+  .cover-phone { max-width: 380px; }
+  .cover-phone strong { font-size: 36px; }
+}
+@media (max-width: 700px) {
+  .clear-cover-page .header { padding: 12px 5%; min-height: 92px; gap: 16px; }
+  .clear-cover-page .brand { width: 150px; }
+  .clear-cover-page .header-info { flex: 1; min-width: 0; }
+  .clear-cover-page .deadline-card { padding: 0 0 0 10px; gap: 3px; white-space: normal; }
+  .clear-cover-page .deadline-line { display: grid; gap: 3px; }
+  .clear-cover-page .deadline-title { font-size: 13px; }
+  .clear-cover-page .deadline-date { font-size: 16px; white-space: nowrap; }
+  .clear-cover-page .deadline-message { font-size: 12px; }
+  .clear-cover-page .cover-stage { min-height: 0; padding: 32px 6% 28px; gap: 165px; }
+  .cover-photo { object-position: 65% 65%; }
+  .cover-stage::before { background: linear-gradient(180deg, #071c27f2 0%, #071c27dc 38%, #071c2720 63%, #071c2775 100%); }
+  .cover-region { font-size: 22px; margin-bottom: 10px; }
+  .clear-cover-page .cover-title { font-size: 52px; }
+  .cover-company { font-size: 20px; margin-top: 16px; }
+  .cover-lead { font-size: 16px; margin: 12px 0 22px; }
+  .cover-actions { gap: 8px 20px; }
+  .cover-estimate { font-size: 16px; padding: 16px 18px; min-height: 54px; }
+  .cover-services { font-size: 16px; }
+  .cover-phone { max-width: none; padding: 16px 12px; gap: 6px; }
+  .cover-phone > span:first-child { font-size: 18px; }
+  .cover-phone strong { font-size: 34px; }
+  .cover-phone .cover-hours { font-size: 15px; }
+  .clear-cover-page .footer-company dl > div { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; }
+  .clear-cover-page .footer-company { margin-top: 36px; }
+  .clear-cover-page .footer-company dt, .clear-cover-page .footer-company dd { font-size: 15px; }
+}
+@media (max-width: 360px) {
+  .clear-cover-page .header { gap: 10px; }
+  .clear-cover-page .brand { width: 128px; }
+  .clear-cover-page .deadline-date { font-size: 14px; }
+  .clear-cover-page .cover-title { font-size: 46px; }
+  .cover-phone strong { font-size: 30px; }
+}
