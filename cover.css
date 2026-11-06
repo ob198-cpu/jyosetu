@@ -76,7 +76,8 @@
 .cover-phone-label-part { display: inline-block; white-space: nowrap; }
 .cover-phone strong { font: 700 42px/1.15 Arial, sans-serif; white-space: nowrap; letter-spacing: 0; }
 .cover-phone .cover-hours { font-size: 16px; color: #343b30; }
-.cover-phone:hover { background: #ffe987; }
+.cover-phone:not([href]) { cursor: default; }
+.cover-phone[href]:hover { background: #ffe987; }
 .clear-cover-page .content-footer { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .clear-cover-page .footer-brand { min-width: 0; }
 .clear-cover-page .footer-brand nav { margin-top: 28px; }
