@@ -73,6 +73,7 @@
 .cover-services span { margin-left: 12px; }
 .cover-phone { justify-self: end; display: grid; gap: 8px; width: 100%; max-width: 448px; padding: 23px 20px; background: #ffdf62; color: #a52014; text-align: center; border: 2px solid #ffc836; border-radius: 4px; }
 .cover-phone > span:first-child { font-size: 22px; font-weight: 700; }
+.cover-phone-label-part { display: inline-block; white-space: nowrap; }
 .cover-phone strong { font: 700 42px/1.15 Arial, sans-serif; white-space: nowrap; letter-spacing: 0; }
 .cover-phone .cover-hours { font-size: 16px; color: #343b30; }
 .cover-phone:hover { background: #ffe987; }
