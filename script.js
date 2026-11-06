@@ -1,7 +1,7 @@
 const header = document.querySelector(".site-header");
 const estimateForm = document.querySelector("#estimateForm");
 const toast = document.querySelector("#toast");
-const FORM_URL = "https://forms.gle/CuH34CGrpjS4D3n2A";
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSclakPQUAX9IYzU1jLDFItpHDh0Rm_67c3EZo39aQZKKmmxbA/viewform";
 
 const updateHeader = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 24);

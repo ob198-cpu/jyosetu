@@ -9,8 +9,8 @@
   const helper = document.querySelector('#inquiryHelper');
   const button = form.querySelector('.draft-submit');
   const status = document.querySelector('#draftStatus');
-  const formURL = 'https://forms.gle/CuH34CGrpjS4D3n2A';
-  const prefillURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfCPjLxCtIg3E4MHXnooZ6zOvLXc7xOtw44gg_Fb4p53EposQ/viewform';
+  const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLSclakPQUAX9IYzU1jLDFItpHDh0Rm_67c3EZo39aQZKKmmxbA/viewform';
+  const prefillURL = 'https://docs.google.com/forms/d/e/1FAIpQLSclakPQUAX9IYzU1jLDFItpHDh0Rm_67c3EZo39aQZKKmmxbA/viewform';
   let busy = false;
   let selectedService = '';
   const serviceContext = document.querySelector('#consultContext');
@@ -22,20 +22,21 @@
     });
   });
   function buildFormURL() {
-    // The Google form's address and inquiry fields are short-answer inputs.
-    const value = name => form.elements.namedItem(name).value.trim().replace(/\r\n?|\n/g, ' / ');
-    const area = value('area');
-    const parts = [
+    const value = name => form.elements.namedItem(name).value.trim();
+    const message = [
       selectedService && `相談したい作業：${selectedService}`,
-      value('company') && `会社名：${value('company')}`,
-      value('cars') && `駐車台数：${value('cars')}`,
-      value('message') && `希望内容：${value('message')}`
-    ].filter(Boolean);
-    if (!area && !parts.length) return formURL;
+      value('message')
+    ].filter(Boolean).join('\n\n');
+    const fields = [
+      ['entry.229034388', value('company')],
+      ['entry.2090653235', value('area')],
+      ['entry.1617912704', value('cars')],
+      ['entry.1884809168', message]
+    ].filter(([, fieldValue]) => fieldValue);
+    if (!fields.length) return formURL;
     const url = new URL(prefillURL);
     url.searchParams.set('usp', 'pp_url');
-    if (area) url.searchParams.set('entry.319206248', area);
-    if (parts.length) url.searchParams.set('entry.566332613', parts.join(' / '));
+    fields.forEach(([name, fieldValue]) => url.searchParams.set(name, fieldValue));
     return url.href;
   }
   form.addEventListener('submit', event => {
