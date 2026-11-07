@@ -53,7 +53,7 @@
 .clear-cover-page .cover-title {
   position: static;
   margin: 0;
-  font-size: 76px;
+  font-size: 48px;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: 0;
@@ -63,6 +63,7 @@
   will-change: auto;
 }
 .clear-cover-page .cover-title > span { display: block; width: auto; white-space: nowrap; }
+.clear-cover-page .cover-title > .cover-title-service { font-size: 2em; color: #ffdf62; }
 .clear-cover-page .cover-title > span:last-child { color: #ffdf62; }
 .cover-company { margin: 24px 0 0; font-size: 25px; font-weight: 700; }
 .cover-lead { font-size: 18px; line-height: 1.9; margin: 14px 0 28px; }
@@ -71,6 +72,12 @@
 .cover-estimate:hover { background: #a82c16; }
 .cover-services { font-size: 17px; font-weight: 700; padding: 16px 0; border-bottom: 1px solid #fff8; }
 .cover-services span { margin-left: 12px; }
+.cover-contact { justify-self: end; display: grid; grid-auto-rows: 1fr; gap: 28px; width: 100%; max-width: 448px; min-width: 0; }
+.cover-hauling { display: grid; align-content: center; padding: 23px 20px; background: #ffdf62; color: #a52014; text-align: center; border: 2px solid #ffc836; border-radius: 4px; }
+.cover-hauling p { margin: 0 0 10px; font-size: 22px; font-weight: 700; line-height: 1.4; }
+.cover-hauling p span { display: inline-block; white-space: nowrap; }
+.cover-hauling-message { margin-bottom: 8px; font-size: 18px; font-weight: 700; line-height: 1.35; }
+.cover-hauling-rate strong { display: block; font: 700 64px/1.15 Arial, sans-serif; letter-spacing: 0; white-space: nowrap; }
 .cover-phone { justify-self: end; display: grid; gap: 8px; width: 100%; max-width: 448px; padding: 23px 20px; background: #ffdf62; color: #a52014; text-align: center; border: 2px solid #ffc836; border-radius: 4px; }
 .cover-phone > span:first-child { font-size: 22px; font-weight: 700; }
 .cover-phone-label-part { display: inline-block; white-space: nowrap; }
@@ -92,13 +99,17 @@
 
 @media (min-width: 1600px) {
   .clear-cover-page .cover-stage { min-height: 660px; padding-left: 7%; padding-right: 7%; }
-  .clear-cover-page .cover-title { font-size: 88px; }
+  .clear-cover-page .cover-title { font-size: 56px; }
+}
+@media (min-width: 1051px) and (max-width: 1200px) {
+  .clear-cover-page .cover-title { font-size: 42px; }
 }
 @media (max-width: 1050px) {
   .clear-cover-page .cover-stage { grid-template-columns: 1fr; min-height: 620px; }
   .cover-content { max-width: 620px; }
-  .clear-cover-page .cover-title { font-size: 64px; }
-  .cover-phone { max-width: 380px; }
+  .clear-cover-page .cover-title { font-size: 48px; }
+  .cover-contact, .cover-phone { max-width: 380px; }
+  .cover-hauling-rate strong { font-size: 56px; }
   .cover-phone strong { font-size: 36px; }
 }
 @media (max-width: 700px) {
@@ -114,12 +125,16 @@
   .cover-photo { object-position: 65% 65%; }
   .cover-stage::before { background: linear-gradient(180deg, #071c27f2 0%, #071c27dc 38%, #071c2720 63%, #071c2775 100%); }
   .cover-region { font-size: 22px; margin-bottom: 10px; }
-  .clear-cover-page .cover-title { font-size: 52px; }
+  .clear-cover-page .cover-title { font-size: 28px; }
   .cover-company { font-size: 20px; margin-top: 16px; }
   .cover-lead { font-size: 16px; margin: 12px 0 22px; }
   .cover-actions { gap: 8px 20px; }
   .cover-estimate { font-size: 16px; padding: 16px 18px; min-height: 54px; }
   .cover-services { font-size: 16px; }
+  .cover-contact { max-width: none; gap: 24px; }
+  .cover-hauling { padding: 16px 12px; }
+  .cover-hauling p { font-size: 18px; }
+  .cover-hauling-rate strong { font-size: 52px; }
   .cover-phone { max-width: none; padding: 16px 12px; gap: 6px; }
   .cover-phone > span:first-child { font-size: 18px; }
   .cover-phone strong { font-size: 34px; }
@@ -128,10 +143,14 @@
   .clear-cover-page .footer-company { margin-top: 36px; }
   .clear-cover-page .footer-company dt, .clear-cover-page .footer-company dd { font-size: 15px; }
 }
+@media (max-width: 380px) {
+  .clear-cover-page .cover-title { font-size: 26px; }
+}
 @media (max-width: 360px) {
   .clear-cover-page .header { gap: 10px; }
   .clear-cover-page .brand { width: 128px; }
   .clear-cover-page .deadline-date { font-size: 14px; }
-  .clear-cover-page .cover-title { font-size: 46px; }
+  .clear-cover-page .cover-title { font-size: 22px; }
+  .cover-hauling-rate strong { font-size: 48px; }
   .cover-phone strong { font-size: 30px; }
 }
