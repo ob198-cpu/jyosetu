@@ -83,6 +83,15 @@
 .cover-phone-label-part { display: inline-block; white-space: nowrap; }
 .cover-phone strong { font: 700 42px/1.15 Arial, sans-serif; white-space: nowrap; letter-spacing: 0; }
 .cover-phone .cover-hours { font-size: 16px; color: #343b30; }
+.phone-lines { display: grid; gap: 8px; width: 100%; min-width: 0; container-type: inline-size; }
+.phone-line { display: flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+.phone-line .phone-person { font: 700 clamp(11px, 3.5cqi, 20px)/1.4 var(--sans); letter-spacing: 0; }
+.cover-phone .phone-line { justify-content: center; }
+.cover-phone .phone-line strong { font-size: clamp(24px, calc(12cqi - 7px), 42px); }
+.cover-phone .phone-person { font-size: clamp(11px, 3.5cqi, 14px); }
+.cover-phone .phone-line:not([href]) { cursor: default; }
+.cover-phone:has(.phone-line[href]:hover) { background: #ffe987; }
+.contact-phone-lines .phone-number { display: flex; font-size: clamp(26px, calc(12cqi - 7px), 54px); }
 .cover-phone:not([href]) { cursor: default; }
 .cover-phone[href]:hover { background: #ffe987; }
 .clear-cover-page .content-footer { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
