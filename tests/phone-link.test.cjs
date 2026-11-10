@@ -35,7 +35,7 @@ test('hero numbers start without call links and retain separate mobile destinati
   assert.equal((card.match(/<a /g) || []).length, 2);
   assert.match(card, /0123-25-9947/);
   assert.match(card, /090-6029-1870/);
-  assert.match(card, /（ヒャクタケ）/);
+  assert.doesNotMatch(card, /（ヒャクタケ）|class="phone-person"/);
   assert.match(card, /除雪の予約・相談/);
   assert.match(card, /（代表：ヒャクタケまで！）/);
   assert.match(card, /受付 8:00–20:00/);
