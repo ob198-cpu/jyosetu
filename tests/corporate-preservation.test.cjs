@@ -49,3 +49,40 @@ test('the corporate hero retains Sapporo-wide coverage and corporate parking foc
   assert.match(hero, /href="#contact"/);
   assert.equal((html.match(/class="business-point"/g) || []).length, 3);
 });
+
+test('business marketing does not reinstate an unsupported parking-size ceiling or a narrow hero sector', () => {
+  const hero = html.match(/<section class="opening opening--clear"[\s\S]*?<\/section>/)[0];
+  const heading = hero.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)[1].replace(/<[^>]+>/g, '');
+  assert.doesNotMatch(html, /5\s*[〜～~－-]\s*20\s*台|(?:20|30)台(?:まで|以下|限定)/);
+  assert.doesNotMatch(heading, /アパート|医療介護/);
+  assert.match(heading, /店舗・企業・施設/);
+  assert.match(heading, /駐車場・敷地/);
+  assert.match(hero, /不動産オーナー/);
+  for (const sector of ['店舗', '事務所', '工場', '倉庫', '施設', '賃貸物件']) {
+    assert.ok(hero.includes(sector), 'lost business sector: ' + sector);
+  }
+  assert.match(html, /placeholder="[^"]*30台[^"]*面積/);
+});
+
+test('metadata shares the broader business scope without introducing an unconditional capacity promise', () => {
+  const description = html.match(/<meta name="description" content="([^"]+)"/)[1];
+  const ogDescription = html.match(/<meta property="og:description" content="([^"]+)"/)[1];
+  const title = html.match(/<title>([^<]+)<\/title>/)[1];
+  const ogTitle = html.match(/<meta property="og:title" content="([^"]+)"/)[1];
+  const structured = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(description, ogDescription);
+  assert.equal(title, ogTitle);
+  assert.equal(structured['@graph'].find(item => item['@type'] === 'WebPage').name, title);
+  assert.match(description, /事業用駐車場・敷地/);
+  assert.match(description, /シーズン契約・単発作業/);
+  assert.match(description, /現地条件を確認/);
+  assert.doesNotMatch(description, /必ず|即日保証|台まで/);
+});
+
+test('business one-off consultation is explicit while residential limits and the final-form step remain clear', () => {
+  const oneOff = html.match(/<div class="contract-scope" id="spot">([\s\S]*?)<\/section>/)[1];
+  assert.match(oneOff, /事業用敷地の単発除雪・排雪/);
+  assert.match(oneOff, /現地条件と稼働状況に応じて対応可否/);
+  assert.match(html, /個人宅の単発除排雪は受付を制限/);
+  assert.match(html, /class="draft-submit"[^>]*>連絡先の入力へ進む/);
+});
