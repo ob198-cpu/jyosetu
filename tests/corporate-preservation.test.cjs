@@ -42,10 +42,10 @@ test('native form mapping and phone device handling remain unchanged across LF a
   assert.deepEqual(values(html, /<script src="([^"]+)"/g), ['motion.js', 'content.js?v=20261106-new-form', 'phone-link.js?v=20261110-phone-lines']);
 });
 
-test('the corporate hero cannot regress to personal, single-use, low-price or wide-area copy', () => {
+test('the corporate hero retains Sapporo-wide coverage and corporate parking focus', () => {
   const hero = html.match(/<section class="opening opening--clear"[\s\S]*?<\/section>/)[0];
   assert.doesNotMatch(hero, /ご自宅|8,800|恵庭|1回/);
-  assert.match(hero, /札幌市北区・東区/);
+  assert.match(hero, /札幌市全域対応/);
   assert.match(hero, /href="#contact"/);
   assert.equal((html.match(/class="business-point"/g) || []).length, 3);
 });
