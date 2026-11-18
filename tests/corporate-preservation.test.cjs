@@ -100,3 +100,8 @@ test('the linked pricing section retains each published reference price and bill
   ]) assert.ok(rows.some(row => row.includes(expected)), 'missing reference price: ' + expected);
   assert.match(section, /税込／税別/);
 });
+
+test('the pricing section comes before the three service points and has the requested two-line heading', () => {
+  assert.match(html, /<section\b[^>]*\bid="price"[^>]*>[\s\S]*?<\/section>\s*<section id="services"/);
+  assert.match(html, /<h2 id="price-title"><span>除雪・排雪<\/span><br><span>の料金目安<\/span><\/h2>/);
+});
