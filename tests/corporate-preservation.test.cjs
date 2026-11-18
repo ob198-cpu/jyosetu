@@ -86,3 +86,17 @@ test('business one-off consultation is explicit while residential limits and the
   assert.match(html, /個人宅の単発除排雪は受付を制限/);
   assert.match(html, /class="draft-submit"[^>]*>連絡先の入力へ進む/);
 });
+
+test('the linked pricing section retains each published reference price and billing unit', () => {
+  assert.match(html, /href="#price"/);
+  const section = html.match(/<section\b[^>]*\bid="price"[^>]*>([\s\S]*?)<\/section>/)[1];
+  const rows = [...section.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/g)]
+    .map(([, row]) => row.replace(/<[^>]+>/g, '').replace(/\s+/g, ''));
+  for (const expected of [
+    '中規模スーパーシーズン契約20万–80万円／シーズン',
+    '企業・事務所駐車場シーズン契約11万–50万円／シーズン',
+    'スポット除雪1.5万–5万円／回',
+    '排雪4t車8,800円／回',
+  ]) assert.ok(rows.some(row => row.includes(expected)), 'missing reference price: ' + expected);
+  assert.match(section, /税込／税別/);
+});
